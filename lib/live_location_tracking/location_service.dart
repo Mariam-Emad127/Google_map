@@ -2,11 +2,10 @@
 
 class LocationService {
    Location location = Location();
-
- Future <bool> checkAndRequestLocationService() async {
+ 
+   Future <bool> checkAndRequestLocationService() async {
     var isServiceEnabled = await location.serviceEnabled();
-    print("nnnnnnnnnnnnnnnn$isServiceEnabled");
-    if (!isServiceEnabled) {
+     if (!isServiceEnabled) {
       isServiceEnabled = await location.requestService();
 
       if (!isServiceEnabled) {
@@ -56,6 +55,8 @@ class LocationService {
     }
 
 
-
+Future<LocationData>getLocationData()async{
+return await location.getLocation();
+}
 
 }
